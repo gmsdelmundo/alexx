@@ -3,10 +3,9 @@ package com.alexx.arithmetic;
 import com.alexx.arithmetic.model.AdjustIntByOne;
 import com.alexx.arithmetic.model.AdjustNumberByOne;
 
-public class AdjustNumberByOneFactory {
+public enum AdjustNumberByOneFactory {
 
-    public AdjustNumberByOneFactory() {
-    }
+    INSTANCE;
 
     public AdjustNumberByOne<?> createAdjustNumberByOne(Object number) {
         return switch (number) {
