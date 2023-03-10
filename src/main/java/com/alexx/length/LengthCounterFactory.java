@@ -3,10 +3,9 @@ package com.alexx.length;
 import com.alexx.length.model.LengthCounter;
 import com.alexx.length.model.StringLengthCounter;
 
-public class LengthCounterFactory {
+public enum LengthCounterFactory {
 
-    public LengthCounterFactory() {
-    }
+    INSTANCE;
 
     public LengthCounter createLengthCounter(Object obj) {
         return switch (obj) {

@@ -7,8 +7,6 @@ import java.text.StringCharacterIterator;
 
 public class StringLengthCounter implements LengthCounter {
 
-    private static final AdjustNumberByOneFactory ADJUST_NUMBER_BY_ONE_FACTORY = new AdjustNumberByOneFactory();
-
     private final String str;
 
     public StringLengthCounter(String str) {
@@ -21,7 +19,7 @@ public class StringLengthCounter implements LengthCounter {
         final CharacterIterator it = new StringCharacterIterator(str);
 
         for (char c = it.first(); c != CharacterIterator.DONE; c = it.next()) {
-            length = (int) ADJUST_NUMBER_BY_ONE_FACTORY.createAdjustNumberByOne(length).increment();
+            length = (int) AdjustNumberByOneFactory.INSTANCE.createAdjustNumberByOne(length).increment();
         }
 
         return length;
