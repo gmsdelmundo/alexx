@@ -1,6 +1,5 @@
 package com.alexx.length;
 
-import com.alexx.arithmetic.AdjustNumberByOneFactory;
 import com.alexx.length.model.LengthCounter;
 import com.alexx.length.model.StringLengthCounter;
 

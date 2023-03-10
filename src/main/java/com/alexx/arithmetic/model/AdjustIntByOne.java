@@ -5,8 +5,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class AdjustIntByOne implements AdjustNumberByOne<Integer> {
 
-    private final static Map<Integer, Integer> INCREMENT_RESULTS = new ConcurrentHashMap<>();
-    private final static Map<Integer, Integer> DECREMENT_RESULTS = new ConcurrentHashMap<>();
+    private static final Map<Integer, Integer> INCREMENT_RESULTS = new ConcurrentHashMap<>();
+    private static final Map<Integer, Integer> DECREMENT_RESULTS = new ConcurrentHashMap<>();
 
     private final int number;
 
@@ -38,18 +38,21 @@ public class AdjustIntByOne implements AdjustNumberByOne<Integer> {
         }
     }
 
-    private int incrementByOne(final int number) {
-        return (-(~number));
+    private int incrementByOne(int n) {
+        return (-(~n));
     }
 
-    private int decrementByOne(int number) {
-        int subtractend = 1;
-        while (subtractend != 0) {
-            int borrow = (~number) & subtractend;
-            number ^= subtractend;
-            subtractend = borrow << 1;
+    private int decrementByOne(int n) {
+        int minuend = n;
+        int subtrahend = 1;
+
+        while (subtrahend != 0) {
+            int borrow = (~minuend) & subtrahend;
+            minuend ^= subtrahend;
+            subtrahend = borrow << 1;
         }
-        return number;
+
+        return minuend;
     }
 
 }
