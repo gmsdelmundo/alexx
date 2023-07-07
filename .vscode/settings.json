@@ -1,0 +1,12 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.configuration.runtimes": [
+        {
+          "name": "JavaSE-17",
+          "path": "/usr/lib/jvm/java-1.17.0-openjdk-amd64",
+          "default": true
+        }
+      ],
+      "java.checkstyle.configuration": "${workspaceFolder}/checkstyle.xml",
+      "java.checkstyle.version": "10.8.1"
+}
